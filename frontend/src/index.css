@@ -16,7 +16,7 @@ body {
   /* background-image: url("C:\Users\toschiba\Desktop\projet-final\project1\frontend\src\back\wamiapsd.jpg"); */
   background-repeat: no-repeat;
   background-size: cover;
-  background-color: #26282b;
+  background-color: #949393;
 }
 #root {
   height: 100%;
@@ -336,7 +336,7 @@ img.large {
 }
 
 .alert-info {
-  color: #2020a0;
+  color: #7120a0;
   background-color: #e0e0ff;
 }
 .alert-danger {
@@ -426,13 +426,20 @@ img.large {
 }
 .productHome {
   border-radius: 10px;
-  box-shadow: 5px 5px 15px 15px #161616;
+  box-shadow: 5px 5px 15px 15px #23004b;
   margin: 3% 3% 3% 3%;
   background: linear-gradient(
     to bottom,
     rgb(47, 48, 48) 1%,
-    rgb(255, 255, 255) 99%
+    rgb(255, 255, 255) 99% 
   );
+  margin-top: 200px;
+}
+.carousel-container {
+  position: absolute;
+  top: 80px; /* ajustez cette valeur en fonction de la hauteur de votre header */
+  width: 100%;
+  z-index: 1; /* assurez-vous que le carousel est au-dessus du contenu */
 }
 .productlist {
   background-color: rgba(0, 0, 0, 0.4);
@@ -597,7 +604,8 @@ h1 {
   font-family: "Montserrat", "Helvetica", Arial, sans-serif;
 }
 .tph {
-  margin-left: 450px;
+  margin-left: 450px; /* Vous pouvez ajuster cette valeur selon vos besoins */
+  margin-top: 100px;
 }
 h3 {
   font-size: x-large;
@@ -731,6 +739,115 @@ img.medium {
   width: 40%;
 
 }
+}
+.home-container {
+  position: relative;
+}
+
+.col-footer {
+  background-color: #e4e4e4;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  
+}
+
+.col-footer h5 {
+  color: #333;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.col-footer p {
+  color: #666;
+  font-size: 1.2rem;
+  line-height: 1.5;
+  margin-bottom: 10px;
+}
+
+/* Styles généraux */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+header {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+}
+
+.brand {
+  font-size: 24px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  height: 10px;
+}
+
+.navbar a {
+  margin-left: 20px;
+  text-decoration: none;
+  color: #fff;
+}
+
+.navbar a:hover {
+  text-decoration: underline;
+}
+
+/* Main content */
+.main-content {
+  padding: 20px 0;
+}
+
+.product {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.product-item {
+  flex: 1 0 calc(25% - 20px);
+  margin: 10px;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+
+.product-item img {
+  max-width: 100%;
+  height: auto;
+}
+
+.product-item h2 {
+  margin-top: 10px;
+  font-size: 18px;
+}
+
+.product-item p {
+  color: #666;
+}
+
+/* Footer */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
 }
 
 

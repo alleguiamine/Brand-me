@@ -29,16 +29,16 @@ export default function ShippingAddressScreen(props) {
       <CheckoutSteps step1 step2></CheckoutSteps>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1 className="vg">Shipping Address</h1>
+          <h1 className="vg">adresse de livraison</h1>
         </div>
         <div>
           <label htmlFor="fullName" className="vg">
-            Full Name
+          Nom et prénom
           </label>
           <input
             type="text"
             id="fullName"
-            placeholder="Enter full name"
+            placeholder="Entrez le nom et le prénom"
             value={fullName}
             onChange={(e) => setFullName(e.target.value)}
             required
@@ -46,12 +46,12 @@ export default function ShippingAddressScreen(props) {
         </div>
         <div>
           <label htmlFor="address" className="vg">
-            Address
+          Adresse
           </label>
           <input
             type="text"
             id="address"
-            placeholder="Enter address"
+            placeholder="Entrer l'adresse"
             value={address}
             onChange={(e) => setAddress(e.target.value)}
             required
@@ -59,12 +59,12 @@ export default function ShippingAddressScreen(props) {
         </div>
         <div>
           <label htmlFor="city" className="vg">
-            City
+          Ville
           </label>
           <input
             type="text"
             id="city"
-            placeholder="Enter city"
+            placeholder="Entrez la ville"
             value={city}
             onChange={(e) => setCity(e.target.value)}
             required
@@ -72,12 +72,12 @@ export default function ShippingAddressScreen(props) {
         </div>
         <div>
           <label htmlFor="postalCode" className="vg">
-            Postal Code
+          Code Postal
           </label>
           <input
             type="text"
             id="postalCode"
-            placeholder="Enter postal code"
+            placeholder="Entrez le code postal"
             value={postalCode}
             onChange={(e) => setPostalCode(e.target.value)}
             required
@@ -85,12 +85,12 @@ export default function ShippingAddressScreen(props) {
         </div>
         <div>
           <label htmlFor="country" className="vg">
-            Country
+          Pays
           </label>
           <input
             type="text"
             id="country"
-            placeholder="Enter country"
+            placeholder="Entrez le pays"
             value={country}
             onChange={(e) => setCountry(e.target.value)}
             required
@@ -99,7 +99,7 @@ export default function ShippingAddressScreen(props) {
         <div>
           <label />
           <button className="primary" type="submit">
-            Continue
+          Continuer
           </button>
         </div>
       </form>

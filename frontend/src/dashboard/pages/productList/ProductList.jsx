@@ -53,7 +53,7 @@ function ProductList() {
         return (
             <>
             <Link to={"/product/"+params.row.id}>
-            <button className="productListEdit">Edit</button>
+            <button className="productListEdit">Modifier</button>
            </Link>
 
             <DeleteOutline className="productListDelete" onClick={()=>handleDelete(params.row.id)}/>

@@ -21,7 +21,7 @@ export default function PaymentMethodScreen(props) {
       <CheckoutSteps step1 step2 step3></CheckoutSteps>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1 className="vg">Payment Method</h1>
+          <h1 className="vg">Mode de paiement</h1>
         </div>
         <div>
           <div>
@@ -53,7 +53,7 @@ export default function PaymentMethodScreen(props) {
         <div>
           <label />
           <button className="primary" type="submit">
-            Continue
+          Continuer
           </button>
         </div>
       </form>

@@ -30,7 +30,7 @@ export default function ProductScreen(props) {
       ) : (
         <div>
           <Link to="/" className="back">
-            Back to result
+          Retour au résultat
           </Link>
           <div className="row top1">
             <div className="col-1">
@@ -52,7 +52,7 @@ export default function ProductScreen(props) {
                       numReviews={product.numReviews}
                     ></Rating>
                   </li>
-                  <li>Pirce : {product.price} DT</li>
+                  <li>Prix : {product.price} DT</li>
                   <li>
                     Description:
                     <p>{product.description}</p>
@@ -66,18 +66,18 @@ export default function ProductScreen(props) {
                   <ul>
                     <li>
                       <div className="row">
-                        <div>Price</div>
+                        <div>Prix</div>
                         <div className="price">{product.price} DT</div>
                       </div>
                     </li>
                     <li>
                       <div className="row">
-                        <div>Status</div>
+                        <div>Statut</div>
                         <div>
                           {product.countInStock > 0 ? (
-                            <span className="success">In Stock</span>
+                            <span className="success">En stock</span>
                           ) : (
-                            <span className="danger">Unavailable</span>
+                            <span className="danger">Indisponible</span>
                           )}
                         </div>
                       </div>
@@ -86,7 +86,7 @@ export default function ProductScreen(props) {
                       <>
                         <li>
                           <div className="row">
-                            <div>Qty</div>
+                            <div>Quantité</div>
                             <div>
                               <select
                                 value={qty}
@@ -108,7 +108,7 @@ export default function ProductScreen(props) {
                             onClick={addToCartHandler}
                             className="primary block"
                           >
-                            Add to Cart
+                            Ajouter au panier
                           </button>
                         </li>
                       </>

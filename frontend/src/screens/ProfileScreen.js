@@ -44,7 +44,7 @@ export default function ProfileScreen() {
     <div className="order">
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>User Profile</h1>
+          <h1>Profil de l'utilisateur</h1>
         </div>
         {loading ? (
           <LoadingBox></LoadingBox>
@@ -58,51 +58,51 @@ export default function ProfileScreen() {
             )}
             {successUpdate && (
               <MessageBox variant="success">
-                Profile Updated Successfully
+               Mise à jour du profil réussie
               </MessageBox>
             )}
             <div>
-              <label htmlFor="name">Name</label>
+              <label htmlFor="name">Nom et prénom</label>
               <input
                 id="name"
                 type="text"
-                placeholder="Enter name"
+                placeholder="Entrez le nom et le prénom"
                 value={name}
                 onChange={(e) => setName(e.target.value)}
               ></input>
             </div>
             <div>
-              <label htmlFor="email">Email</label>
+              <label htmlFor="email">E-mail</label>
               <input
                 id="email"
                 type="email"
-                placeholder="Enter email"
+                placeholder="Entrez l'e-mail"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
               ></input>
             </div>
             <div>
-              <label htmlFor="password">Password</label>
+              <label htmlFor="password">Mot de passe</label>
               <input
                 id="password"
                 type="password"
-                placeholder="Enter password"
+                placeholder="Entrer le mot de passe"
                 onChange={(e) => setPassword(e.target.value)}
               ></input>
             </div>
             <div>
-              <label htmlFor="confirmPassword">confirm Password</label>
+              <label htmlFor="confirmPassword">Confirmez le mot de passe</label>
               <input
                 id="confirmPassword"
                 type="password"
-                placeholder="Enter confirm password"
+                placeholder="Entrez le mot de passe de confirmation"
                 onChange={(e) => setConfirmPassword(e.target.value)}
               ></input>
             </div>
             <div>
               <label />
               <button className="primary" type="submit">
-                Update
+              Mise à jour
               </button>
             </div>
           </>

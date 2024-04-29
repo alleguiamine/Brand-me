@@ -6,6 +6,7 @@ import Background from "../back/alla9ni.JPG";
 
 function Header() {
   return (
+    
     <div
       className="page-header section-dark"
       style={{
@@ -32,6 +33,7 @@ function Header() {
             >
               <img src={Fog} alt="" />
             </div>
+            
             <div
               className="fog-low right"
               // style={{

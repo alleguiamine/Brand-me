@@ -1,11 +1,14 @@
+// HomeScreen.js
 import Header from "../components/Header";
 import ProductHome from "./ProductHome";
+import Carousel from "../components/carousel/Carousel";
 
 export default function HomeScreen() {
   return (
-    <div className="row center">
+    <div className="home-container">
       <Header /> 
-      <ProductHome/>    
+      <Carousel />
+      <ProductHome />
     </div>
   );
 }

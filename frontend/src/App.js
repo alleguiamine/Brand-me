@@ -41,14 +41,14 @@ function App() {
     <BrowserRouter>
       <div className="grid-container">
         <header className="row">
-          <div>
-            <Link className="brand" to="/">
-              Amine{" "}
-            </Link>
-          </div>
+        <div>
+  <Link className="brand" to="/">
+    <img src="images/logobrand.png" alt="Logo" style={{ width: '150px', height: 'auto' }} />
+  </Link>
+</div>
           <div>
             <Link to="/cart" className="Montserrat">
-              Cart
+              Cart 
               {cartItems.length > 0 && (
                 <span className="badge">{cartItems.length}</span>
               )}
@@ -60,20 +60,20 @@ function App() {
                 </Link>
                 <ul className="dropdown-content">
                   <li>
-                    <Link to="/profile">User Profile</Link>
+                    <Link to="/profile">Profil de l'utilisateur</Link>
                   </li>
                   <li>
-                    <Link to="/orderhistory">Order History</Link>
+                    <Link to="/orderhistory">Historique des commandes</Link>
                   </li>
                   <li>
                     <Link to="#signout" onClick={signoutHandler}>
-                      Sign Out
+                    Se déconnecter
                     </Link>
                   </li>
                 </ul>
               </div>
             ) : (
-              <Link to="/signin">Sign In</Link>
+              <Link to="/signin">Se connecter</Link>
             )}
             {userInfo && userInfo.isAdmin && (
               <div className="dropdown">
@@ -85,10 +85,10 @@ function App() {
                     <Link to="/dashboard">Dashboard</Link>
                   </li>
                   <li>
-                    <Link to="/productlist">Products</Link>
+                    <Link to="/productlist">Gestion des produits</Link>
                   </li>
-                  <li>
-                    <Link to="/orderlist">Orders</Link>
+                  <li> 
+                    <Link to="/orderlist">Touts les Historiques </Link>
                   </li>
                 </ul>
               </div>

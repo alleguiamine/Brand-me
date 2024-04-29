@@ -12,7 +12,7 @@ function Product() {
                 <h1 className="productTitle">Product</h1>
                 <Link to="/newproduct">
                 <button className="productAddButton">
-                Create
+                Crée un produit
                 </button>
                 </Link>
             </div>
@@ -39,12 +39,12 @@ function Product() {
 
                     <div className="productInfoItem">
                     <span className="productInfoKey">active</span>
-                    <span className="productInfoValue">yes</span>
+                    <span className="productInfoValue">Oui</span>
                     </div>
 
                     <div className="productInfoItem">
-                    <span className="productInfoKey">in stock:</span>
-                    <span className="productInfoValue">no</span>
+                    <span className="productInfoKey">En stock :</span>
+                    <span className="productInfoValue">Non</span>
                     </div>
                 </div>
             </div>
@@ -52,18 +52,18 @@ function Product() {
            <div className="productBottom">          
             <form  className="productForm">
                 <div className="productFormLeft">
-                   <label>Product Name</label> 
+                   <label>Nom de produit</label> 
                    <input type="text" placeholder="Apple Airpods" />
-                   <label >In Stock</label>
+                   <label >En stock</label>
                    <select name="inStock" id="idStock">
                    <option value="yes">Yes</option>
-                         <option value="No">No</option>
+                         <option value="No">Non</option>
 
                    </select>
                    <label >Active</label>
                    <select name="active" id="active">
-                   <option value="yes">Yes</option>
-                         <option value="No">No</option>
+                   <option value="yes">Oui</option>
+                         <option value="No">Non</option>
 
                    </select>
                 </div>
@@ -75,7 +75,7 @@ function Product() {
                     </label>
                     <input type="file" id="file" style={{display:"none"}}/>
                     </div>
-                    <button className="productButton">Update</button>
+                    <button className="productButton">Mise à jour</button>
                 </div>
             </form>
            </div>

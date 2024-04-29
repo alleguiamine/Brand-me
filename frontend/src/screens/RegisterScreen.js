@@ -36,46 +36,46 @@ export default function RegisterScreen(props) {
     <div>
       <form className="form" onSubmit={submitHandler}>
         <div>
-          <h1>Create Account</h1>
+          <h1>Créer un compte</h1>
         </div>
         {loading && <LoadingBox></LoadingBox>}
         {error && <MessageBox variant="danger">{error}</MessageBox>}
         <div>
-          <label htmlFor="name">Name</label>
+          <label htmlFor="name">Nom et Prénom</label>
           <input
             type="text"
             id="name"
-            placeholder="Enter name"
+            placeholder="Entrez le nom et le prénom"
             required
             onChange={(e) => setName(e.target.value)}
           ></input>
         </div>
         <div>
-          <label htmlFor="email">Email address</label>
+          <label htmlFor="email">Adresse e-mail</label>
           <input
             type="email"
             id="email"
-            placeholder="Enter email"
+            placeholder="Entrez l'e-mail"
             required
             onChange={(e) => setEmail(e.target.value)}
           ></input>
         </div>
         <div>
-          <label htmlFor="password">Password</label>
+          <label htmlFor="password">Mot de passe</label>
           <input
             type="password"
             id="password"
-            placeholder="Enter password"
+            placeholder="Entrer le mot de passe"
             required
             onChange={(e) => setPassword(e.target.value)}
           ></input>
         </div>
         <div>
-          <label htmlFor="confirmPassword">Confirm Password</label>
+          <label htmlFor="confirmPassword">Confirmez le mot de passe</label>
           <input
             type="password"
             id="confirmPassword"
-            placeholder="Enter confirm password"
+            placeholder="Entrez le mot de passe de confirmation"
             required
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></input>
@@ -83,14 +83,14 @@ export default function RegisterScreen(props) {
         <div>
           <label />
           <button className="primary" type="submit">
-            Register
+          Registre
           </button>
         </div>
         <div>
           <label />
           <div className="newCust">
-            Already have an account?{" "}
-            <Link to={`/signin?redirect=${redirect}`}>Sign-In</Link>
+          Vous avez déjà un compte?{" "}
+            <Link to={`/signin?redirect=${redirect}`}>Se connecter</Link>
           </div>
         </div>
       </form>

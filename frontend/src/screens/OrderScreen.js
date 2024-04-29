@@ -56,7 +56,7 @@ export default function OrderScreen(props) {
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
     <div className="order">
-      <h1 className="vg">Order {order._id}</h1>
+      <h1 className="vg">Commande {order._id}</h1>
       <div className="row top">
         <div className="col-4">
           <ul>
@@ -64,33 +64,33 @@ export default function OrderScreen(props) {
               <div className="card card-body">
                 <h2 className="vg">Shipping</h2>
                 <p>
-                  <strong>Name:</strong> {order.shippingAddress.fullName} <br />
-                  <strong>Address: </strong> {order.shippingAddress.address},
+                  <strong>Nom:</strong> {order.shippingAddress.fullName} <br />
+                  <strong>Adresse: </strong> {order.shippingAddress.address},
                   {order.shippingAddress.city},{" "}
                   {order.shippingAddress.postalCode},
                   {order.shippingAddress.country}
                 </p>
                 {order.isDelivered ? (
                   <MessageBox variant="success">
-                    Delivered at {order.deliveredAt}
+                    Livré à {order.deliveredAt}
                   </MessageBox>
                 ) : (
-                  <MessageBox variant="danger">Not Delivered</MessageBox>
+                  <MessageBox variant="danger">Non livrés</MessageBox>
                 )}
               </div>
             </li>
             <li>
               <div className="card card-body">
-                <h2 className="vg">Payment</h2>
+                <h2 className="vg">Paiement</h2>
                 <p>
                   <strong>Method:</strong> {order.paymentMethod}
                 </p>
                 {order.isPaid ? (
                   <MessageBox variant="success">
-                    Paid at {order.paidAt}
+                    Payé à {order.paidAt}
                   </MessageBox>
                 ) : (
-                  <MessageBox variant="danger">Not Paid</MessageBox>
+                  <MessageBox variant="danger">Impayé</MessageBox>
                 )}
               </div>
             </li>

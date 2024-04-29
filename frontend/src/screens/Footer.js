@@ -11,7 +11,7 @@ export default function Footer() {
           <div className=" col-footer">
             <h5 className=" col_white_amrc pt2">NOUS CONTACTER</h5>
             <p>
-              <i className="fa fa-location-arrow"></i> Av.Ezahra Tunis {" "}
+              <i className="fa fa-location-arrow"></i> 11 rue Ferdaws.EZZAHRA Tunis {" "}
             </p>
             <p>
               <i className="fa fa-phone"></i> +216 29 605 400{" "}
@@ -22,13 +22,16 @@ export default function Footer() {
           </div>
           <hr />
           <div className=" col-footer">
-            <h5>NOS PARTENAIRES</h5>
-            <p className="mb10">Gourmandise</p>
-            <p className="mb10">Masmoudi</p>
-            <p className="mb10">Megrinoise</p>
-          </div>
+            <h5>Brand me En Bref</h5>
+            <p className="mb10">Si vous êtes à la recherche d'un cadeau unique pour exprimer votre amour,votre gratitude ou même vos excuses, </p>
+            <p className="mb10">  nous avons ce qu'il vous faut!
+Vivez l'expérience d'apporter de la joie l'expérience d'apporter de la joieà vos proches</p>
+            <p className="mb10"> et regardez leurs yeux briller comme les étoiles que vous leur offrirez.
+N’hésitez pas à nous poser toutes vos questions </p>
+          
+<p className="mb10">concernant nos produits et nos services. N’hésitez pas à nous poser toutes vos questions concernant nos produits et nos services. </p></div>
           <hr />
-          <div className=" col-footer">
+          <div className=" col-footer" >
             <h5>REJOIGNEZ-NOUS</h5>
             <div className="IconsFlex">
               <div className="IconsContainer">
