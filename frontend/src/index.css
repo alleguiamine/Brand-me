@@ -45,6 +45,8 @@ header {
 main {
   grid-area: main;
 }
+
+
 footer {
   margin-bottom: -230px;
   height: 250px;
@@ -55,17 +57,40 @@ footer {
   z-index: 1030;
   grid-area: footer;
   color: #ffffff;
-  background: linear-gradient(to bottom, rgb(91, 21, 89) 20%, #203040 70%);
 }
 /* Common */
+/* Titre principal */
 h1 {
-  font-size: 1.8rem;
-  padding: 1rem 0;
+  font-size: 2.5rem; /* Taille de la police */
+  padding: 1rem 0; /* Espacement autour du titre */
+  text-align: center; /* Alignement centré */
+  
 }
+
 h2 {
   font-size: 1.6rem;
   padding: 1rem 0;
 }
+.reg {
+  background-color: #f3f5f7;
+  padding: 20px;
+  margin: 0 auto; /* Center horizontally */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  max-width: 600px; /* Optional: Set a maximum width */
+  text-align: center; /* Center the text inside */
+}
+
+.reg h2 {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+  color: #333;
+  text-transform: uppercase;
+  border-bottom: 2px solid #007bff;
+  padding-bottom: 10px;
+}
+
+
 
 a {
   text-decoration: none;
@@ -103,20 +128,207 @@ textarea:hover,
 button:hover {
   border: 0.1rem #a19b9b solid;
 }
-button.primary {
+button.btn-success {
   /* background-color: #95a595; */
   margin-bottom: 10px;
-  background-color: #614e1a;
+  background-color: DodgerBlue
+
+  ;
   /* background-color: #370028; */
 }
 button.block {
   width: 100%;
 }
-button.small {
-  font-size: 1.2rem;
-  width: 100px;
-  margin-bottom: 19px;
+/* Style de base pour le bouton */
+.modifier-button {
+  background-color: #ff9800; /* Couleur de fond */
+  border: none; /* Pas de bordure */
+  color: white; /* Couleur du texte */
+  padding: 10px 20px; /* Remplissage */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de soulignement */
+  display: inline-block; /* Affichage en ligne */
+  font-size: 16px; /* Taille de la police */
+  cursor: pointer; /* Curseur */
+  border-radius: 5px; /* Bordure arrondie */
 }
+
+/* Style au survol */
+.modifier-button:hover {
+  background-color: #ff9900; /* Couleur de fond au survol */
+}
+
+/* Style lorsque le bouton est pressé */
+.modifier-button:active {
+  background-color: #ff9900; /* Couleur de fond au clic */
+}
+
+/* Style pour l'avertissement */
+.modifier-button.warning {
+  background-color: #ffc400; /* Couleur de fond */
+}
+
+/* Style pour l'avertissement au survol */
+.modifier-button.warning:hover {
+  background-color: #ffc400; /* Couleur de fond au survol */
+}
+
+/* Style pour l'avertissement lorsque le bouton est pressé */
+.modifier-button.warning:active {
+  background-color: #ffd000; /* Couleur de fond au clic */
+}
+
+/* Style de base pour le bouton */
+.supprimer-button {
+  background-color: #f44336; /* Couleur de fond */
+  border: none; /* Pas de bordure */
+  color: white; /* Couleur du texte */
+  padding: 10px 20px; /* Remplissage */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de soulignement */
+  display: inline-block; /* Affichage en ligne */
+  font-size: 16px; /* Taille de la police */
+  cursor: pointer; /* Curseur */
+  border-radius: 5px; /* Bordure arrondie */
+}
+
+/* Style au survol */
+.supprimer-button:hover {
+  background-color: #d32f2f; /* Couleur de fond au survol */
+}
+
+/* Style lorsque le bouton est pressé */
+.supprimer-button:active {
+  background-color: #b71c1c; /* Couleur de fond au clic */
+}
+/* Style de base pour le bouton */
+.mise-a-jour-button {
+  background-color: #4caf50; /* Couleur de fond */
+  border: none; /* Pas de bordure */
+  color: white; /* Couleur du texte */
+  padding: 10px 20px; /* Remplissage */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de soulignement */
+  display: inline-block; /* Affichage en ligne */
+  font-size: 16px; /* Taille de la police */
+  cursor: pointer; /* Curseur */
+  border-radius: 5px; /* Bordure arrondie */
+  width: 100%;
+}
+
+/* Style au survol */
+.mise-a-jour-button:hover {
+  background-color: #45a049; /* Couleur de fond au survol */
+}
+
+/* Style lorsque le bouton est pressé */
+.mise-a-jour-button:active {
+  background-color: #398438; /* Couleur de fond au clic */
+}
+/* Style du bouton Info */
+.button-info {
+  background-color: #17a2b8;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px; /* Taille de la police */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-info:hover {
+  background-color: #138496;
+}
+
+
+/* Style de la table */
+.table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Style des lignes d'en-tête */
+.table th {
+  background-color: #bbbbbb; /* Couleur de fond */
+  color: #333; /* Couleur du texte */
+  padding: 12px; /* Espacement interne */
+  text-align: left; /* Alignement du texte */
+  border-bottom: 2px solid #ddd; /* Ligne de séparation en bas */
+}
+
+/* Style des cellules */
+.table td {
+  color : #000000 ;
+  padding: 8px; /* Espacement interne */
+  border-bottom: 1px solid rgb(167, 167, 167); /* Ligne de séparation entre les lignes */
+}
+
+/* Style pour les lignes impaires */
+.table tr:nth-child(odd) {
+  background-color: #9c9c9c; /* Couleur de fond */
+}
+
+/* Style pour les boutons dans la dernière colonne */
+.table .actions button {
+  background-color: #4caf50; /* Couleur de fond */
+  color: rgb(182, 140, 140); /* Couleur du texte */
+  border: none; /* Suppression de la bordure */
+  padding: 8px 16px; /* Espacement interne */
+  cursor: pointer; /* Curseur au survol */
+  border-radius: 4px; /* Coins arrondis */
+  transition: background-color 0.3s; /* Transition fluide */
+}
+
+/* Style pour les boutons au survol */
+.table .actions button:hover {
+  background-color: #45a049; /* Couleur de fond au survol */
+}
+
+/* Style de base pour la table */
+.admin-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Style de l'en-tête de la table */
+.admin-table th {
+  background-color: #c3c3c3;
+  color: #333;
+  font-weight: bold;
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style des lignes de la table */
+.admin-table tr {
+  border-bottom: 1px solid #ddd;
+}
+
+/* Style des cellules de la table */
+.admin-table td {
+  padding: 10px;
+}
+
+/* Style des cellules de la table dans la dernière colonne */
+.admin-table td:last-child {
+  text-align: center;
+}
+
+/* Style des liens dans la table */
+.admin-table a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+/* Style des liens au survol */
+.admin-table a:hover {
+  text-decoration: underline;
+}
+
+
+
 /* Header */
 header a {
   color: #ffffff;
@@ -263,8 +475,8 @@ img.large {
 .card {
   margin-left: 10px;
   border: 0.1rem #c0c0c0 solid;
-  /* background-color: #f8f8f8; */
-  /* border-radius: 0.5rem;
+  /*background-color: #f8f8f8; 
+  border-radius: 0.5rem;
   margin: 1rem;
   background-color: #080808;
   border-radius: 5px;
@@ -319,6 +531,8 @@ img.large {
   color: #f0c040;
   margin: 0.1rem;
 }
+
+
 /* Alert */
 .loading {
   display: block !important;
@@ -347,23 +561,89 @@ img.large {
   color: #20a020;
   background-color: #eeffe0;
 }
-/* Form */
+/* Style du formulaire */
 .form {
-  max-width: 60rem;
+  max-width: 600px; /* Increase the maximum width */
   margin: 0 auto;
-  border-radius: 10px;
+  padding: 2rem;
+  background-color: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
 
-  -webkit-box-shadow: 5px 5px 15px 5px #fcf7f7;
-  box-shadow: 5px 5px 15px 5px #ffffff;
+/* Style du titre */
+.form h1 {
+  font-size: 2rem;
+  margin-bottom: 2rem;
+  text-align: center;
+  color: #333;
 }
-.form > div {
-  display: flex;
-  flex-direction: column;
-  margin: 1rem;
-}
+
+/* Style des champs */
 .form label {
-  margin: 1rem 0;
+  display: block;
+  margin-bottom: 1rem;
+  color: #555;
 }
+
+.form input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+/* Style des champs */
+.form input {
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  font-size: 1rem;
+}
+
+/* Style du placeholder */
+.form input::placeholder {
+  font-size: 1.2rem; /* Adjust the font size as needed */
+}
+
+/* Style du bouton */
+.form button {
+  width: 100%;
+  padding: 1rem;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #0056b3;
+}
+
+/* Style des messages d'erreur */
+.form .error-message {
+  color: #dc3545;
+  margin-top: 0.5rem;
+}
+
+/* Style du lien de récupération de mot de passe */
+.form .forgot-password-link {
+  display: block;
+  text-align: center;
+  margin-top: 1rem;
+  color: #007bff;
+}
+
+.form .forgot-password-link:hover {
+  text-decoration: underline;
+}
+
 .dropdown {
   display: inline-block;
   position: relative;
@@ -400,30 +680,28 @@ img.large {
 }
 /* Table */
 .table {
-  text-align: center;
   width: 100%;
   border-collapse: collapse;
-  -webkit-box-shadow: 2px 2px 2px 5px #4e4747;
-  box-shadow: 5px -5px 15px 5px #474444;
-  margin-right: 110px;
 }
-.table tbody tr:nth-of-type {
+
+/* Style des lignes de la table */
+.table tr {
   background-color: #f4f4f4;
 }
+
+/* Style des cellules de la table */
 .table td,
 .table th {
+  text-align: center;
+  border: 1px solid #e4e4e4;
+  padding: 10px;
+}
 
-  text-align: left;
-  border-radius: 20px;
-  border: 0.1rem solid #e4e4e4;
-  padding: 0, 5rem;
-}
+/* Style des boutons dans la table */
 .table button {
-  margin: 0 0.2rem;
-  margin-top: 10px;
-  margin-left: 30px;
-  margin-bottom: 5px;
+  margin: 5px 0.2rem;
 }
+
 .productHome {
   border-radius: 10px;
   box-shadow: 5px 5px 15px 15px #23004b;
@@ -848,6 +1126,195 @@ footer {
   color: #fff;
   padding: 20px 0;
   text-align: center;
+}
+
+.IconsFlex {
+  display: flex;
+  justify-content: center; /* Centrer horizontalement les éléments */
+}
+
+.IconsContainer {
+  margin: 0 5px; /* Marge entre les icônes, ajustez selon vos préférences */
+}
+
+/* CSS */
+.navbar {
+  display: flex;
+  justify-content: space-between; /* Aligne les éléments sur les côtés */
+  align-items: center; /* Centre les éléments verticalement */
+  padding: 10px 20px;
+  background-color: #333; /* Couleur de fond de la barre de navigation */
+}
+
+.logo a {
+  color: #fff; /* Couleur du texte du logo */
+  font-size: 1.5rem; /* Taille de police du logo */
+  text-decoration: none;
+  
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: #ffffff; /* Ajoutez votre couleur d'arrière-plan désirée */
+}
+
+.logo {
+  margin-right: auto; /* Cela poussera le logo vers la gauche */
+}
+
+.nav-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links li {
+  display: inline-block;
+  margin-left: 20px; /* Marge entre les éléments de navigation */
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1 }
+
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li:last-child {
+  margin-right: 0;
+}
+
+.nav-links li a {
+  color: #fff; /* Couleur du texte des liens de navigation */
+  text-decoration: none;
+  font-size: 1.2rem; /* Taille de police des liens de navigation */
+}
+
+.navbar-functions {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0; /* Aligne le contenu du dropdown à droite */
+  background-color: #f9f9f9;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between; /* aligne les éléments sur les côtés */
+  align-items: center; /* centre les éléments verticalement */
+  padding: 10px 20px;
+  background-color: #333; /* couleur de fond de la barre de navigation */
+}
+
+.logo {
+  display: flex; /* pour que le logo soit aligné à gauche */
+  align-items: center; /* centre l'image verticalement */
+}
+
+.logo img {
+  width: 100px; /* largeur de l'image */
+  height: auto; /* hauteur automatique pour conserver les proportions */
+}
+
+.nav-links {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+.nav-links li {
+  margin-right: 20px;
+}
+
+.nav-links li:last-child {
+  margin-right: 0;
+}
+
+.nav-links li a {
+  color: #fff; /* couleur du texte des liens de navigation */
+  text-decoration: none;
+  font-size: 1.2rem; /* taille de police des liens de navigation */
+}
+
+.navbar-functions {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  top: 100%;
+  right: 0; /* aligne le contenu du dropdown à droite */
+  background-color: #f9f9f9;
+  min-width: 160px;
+  z-index: 1;
+}
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
 }
 
 

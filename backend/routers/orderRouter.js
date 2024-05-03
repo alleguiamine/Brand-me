@@ -22,6 +22,11 @@ orderRouter.get(
     res.send(orders);
   })
 );
+
+
+import { createTransport } from "nodemailer";
+// Other imports...
+
 orderRouter.post(
   "/",
   isAuth,
@@ -40,12 +45,40 @@ orderRouter.post(
         user: req.user._id,
       });
       const createdOrder = await order.save();
+
+      // Create a Nodemailer transporter
+      let transporter = createTransport({
+        service: 'gmail',
+        auth: {
+          user: 'Amineallegui09@gmail.com',
+          pass: 'csxh iyua selr aevl'
+        }
+      });
+
+      // Construct the email message
+      let mailOptions = {
+        from: 'Amineallegui09@gmail.com',
+        to: req.user.email,
+        subject: 'Order Confirmation',
+        text: `Your order has been confirmed. Thank you for shopping with us!\n\nOrder Details:\n\nOrder Items: ${req.body.orderItems}\nShipping Address: ${req.body.shippingAddress}\nPayment Method: ${req.body.paymentMethod}\nItems Price: ${req.body.itemsPrice}\nShipping Price: ${req.body.shippingPrice}\nTax Price: ${req.body.taxPrice}\nTotal Price: ${req.body.totalPrice}`
+      };
+
+      // Send the email
+      transporter.sendMail(mailOptions, function(error, info){
+        if (error) {
+          console.error('Error sending email:', error);
+        } else {
+          console.log('Email sent: ' + info.response);
+        }
+      });
+
       res
         .status(201)
         .send({ message: "New Order Created", order: createdOrder });
     }
   })
 );
+
 orderRouter.get(
   "/:id",
   isAuth,

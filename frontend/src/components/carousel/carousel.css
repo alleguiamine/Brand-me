@@ -5,14 +5,15 @@
   display: block;
   place-items: center;
   overflow: hidden;
+  top: 700px; /* Move the carousel 20 pixels higher */
 }
+
 
 .card-slide-track {
   display: flex;
   width: calc(250px * 18);
   animation: scroll 40s linear infinite;
 }
-
 .card-slide-track:hover {
   animation-play-state: paused;
 }

@@ -52,10 +52,10 @@ export default function ProductListScreen(props) {
     <div className="productlist">
       <div className="row">
         <div className="prod">
-          <h1>Products</h1>
+          <h1>Produit</h1>
         </div>
 
-        <button type="button" className="primary" onClick={createHandler}>
+        <button type="button" className="btn-success" class="btn btn-success"onClick={createHandler}>
         Créer un produit        </button>
       </div>
       {loadingDelete && <LoadingBox></LoadingBox>}
@@ -69,7 +69,7 @@ export default function ProductListScreen(props) {
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table className="table">
+        <table className="table" align="center">
           <thead>
             <tr className="prod">
            <th>IMAGE</th>
@@ -97,8 +97,7 @@ export default function ProductListScreen(props) {
                 <td>
                   <button
                     type="button"
-                    className="small"
-                    onClick={() =>
+                    className="modifier-button warning"                    onClick={() =>
                       props.history.push(`/product/${product._id}/edit`)
                     }
                   >
@@ -106,7 +105,7 @@ export default function ProductListScreen(props) {
                   </button>
                   <button
                     type="button"
-                    className="small"
+                    className="supprimer-button"
                     onClick={() => deleteHandler(product)}
                   >
                     Supprimer

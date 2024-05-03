@@ -14,7 +14,7 @@ export default function Footer() {
               <i className="fa fa-location-arrow"></i> 11 rue Ferdaws.EZZAHRA Tunis {" "}
             </p>
             <p>
-              <i className="fa fa-phone"></i> +216 29 605 400{" "}
+              <i className="fi fi-sr-circle-phone"></i> +216 29 605 400{" "}
             </p>
             <p>
               <i className="fa fa fa-envelope"></i> Rached@group.com{" "}
@@ -38,14 +38,19 @@ N’hésitez pas à nous poser toutes vos questions </p>
                 <SocialIcon url="https://www.facebook.com/3alla9ni" />
               </div>{" "}
               <div className="IconsContainer">
-                <SocialIcon url="https://twitter.com/asmaapat" />
+                <SocialIcon url="" />
               </div>
+              <div className="IconsContainer youtube-icon">
+  <SocialIcon url="https://www.youtube.com/results?search_query=3alla9ni" />
+</div>
+
               <div className="IconsContainer">
-                <SocialIcon url="https://instagram.com/asmaapat" />
+                <SocialIcon url="https://www.instagram.com/3alla9ni/" />
               </div>{" "}
               <div className="IconsContainer">
                 <SocialIcon url="https://linkedin.com/asmaapat" />
               </div>
+
             </div>
           </div>
         </div>

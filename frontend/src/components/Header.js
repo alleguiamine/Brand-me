@@ -4,9 +4,8 @@ import Fog from "../back/fog-low.png";
 import Background from "../back/alla9ni.JPG";
 // import Ryan from "./back/ryan.jpg";
 
-function Header() {
+function Header(){
   return (
-    
     <div
       className="page-header section-dark"
       style={{

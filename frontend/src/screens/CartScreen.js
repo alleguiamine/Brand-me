@@ -93,7 +93,7 @@ export default function CartScreen(props) {
               <button
                 type="button"
                 onClick={checkoutHandler}
-                className="primary block"
+                className="mise-a-jour-button"
                 disabled={cartItems.length === 0}
               >
               Passer à la caisse
