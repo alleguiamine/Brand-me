@@ -128,7 +128,7 @@ export default function ProductEditScreen(props) {
                 onChange={(e) => setImage(e.target.value)}
               ></input>
             </div>
-            {/* <div>
+            { <div>
               <label htmlFor="imageFile">Image File</label>
               <input
                 type="file"
@@ -140,7 +140,7 @@ export default function ProductEditScreen(props) {
               {errorUpload && (
                 <MessageBox variant="danger">{errorUpload}</MessageBox>
               )}
-            </div> */}
+            </div>}
             <div>
               <label htmlFor="category">Catégorie</label>
               <input

@@ -15,7 +15,7 @@ export default function HomeScreen() {
   return (
     <div className="productHome">
       <div className="tph">
-        <h3> Nos Meilleurs Tableaux</h3>
+        <h3 className="center-text"> Nos Meilleurs Tableaux</h3>
       </div>
 
       {loading ? (

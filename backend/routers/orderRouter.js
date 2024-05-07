@@ -55,13 +55,31 @@ orderRouter.post(
         }
       });
 
-      // Construct the email message
-      let mailOptions = {
-        from: 'Amineallegui09@gmail.com',
-        to: req.user.email,
-        subject: 'Order Confirmation',
-        text: `Your order has been confirmed. Thank you for shopping with us!\n\nOrder Details:\n\nOrder Items: ${req.body.orderItems}\nShipping Address: ${req.body.shippingAddress}\nPayment Method: ${req.body.paymentMethod}\nItems Price: ${req.body.itemsPrice}\nShipping Price: ${req.body.shippingPrice}\nTax Price: ${req.body.taxPrice}\nTotal Price: ${req.body.totalPrice}`
-      };
+     // Construct the email message
+let orderItemsDetails = req.body.orderItems.map(item => {
+  return `<div>
+            <p>Product: ${item.name}</p>
+            <p>Quantity: ${item.qty}</p>
+            <p>Price: ${item.price}</p>
+            <img src="${item.image}" alt="${item.name}" style="max-width: 200px; height: auto;" />
+          </div>`;
+}).join('');
+
+let mailOptions = {
+  from: 'Amineallegui09@gmail.com',
+  to: req.user.email,
+  subject: 'Order Confirmation',
+  html: `<p>Votre commande a été confirmée. Merci d'avoir fait du shopping avec nous!</p>
+         <p>Détails de la commande:</p>
+         ${orderItemsDetails}
+         <p>Adresse de livraison: ${req.body.shippingAddress}</p>
+         <p>Mode de paiement: ${req.body.paymentMethod}</p>
+         <p>Prix des articles : ${req.body.itemsPrice}</p>
+         <p>Prix de l'expédition: ${req.body.shippingPrice}</p>
+         <p>Prix de la taxe : ${req.body.taxPrice}</p>
+         <p>Prix total: ${req.body.totalPrice}</p>`
+};
+
 
       // Send the email
       transporter.sendMail(mailOptions, function(error, info){

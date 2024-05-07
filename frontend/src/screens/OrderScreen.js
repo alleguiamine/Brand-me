@@ -85,7 +85,7 @@ export default function OrderScreen(props) {
               <div className="card card-body">
                 <h2 className="vg">Paiement</h2>
                 <p>
-                  <strong>Method:</strong> {order.paymentMethod}
+                  <strong>Méthode:</strong> {order.paymentMethod}
                 </p>
                 {order.isPaid ? (
                   <MessageBox variant="success">
@@ -98,7 +98,7 @@ export default function OrderScreen(props) {
             </li>
             <li>
               <div className="card card-body">
-                <h2 className="vg">Order Items</h2>
+                <h2 className="vg">Items commandés</h2>
                 <ul>
                   {order.orderItems.map((item) => (
                     <li key={item.product}>
@@ -117,7 +117,7 @@ export default function OrderScreen(props) {
                         </div>
 
                         <div>
-                          {item.qty} x ${item.price} = ${item.qty * item.price}
+                          {item.qty} x {item.price} TND = {item.qty * item.price} TND
                         </div>
                       </div>
                     </li>
@@ -131,33 +131,28 @@ export default function OrderScreen(props) {
           <div className="card2 card-body">
             <ul>
               <li>
-                <h2>Order Summary</h2>
+                <h2>Récapitulatif de la commande</h2>
               </li>
               <li>
                 <div className="row">
-                  <div>Items</div>
-                  <div>${order.itemsPrice.toFixed(2)}</div>
+                  <div>Articles</div>
+                  <div>{order.itemsPrice.toFixed(2)} TND</div>
                 </div>
               </li>
+            
               <li>
                 <div className="row">
-                  <div>Shipping</div>
-                  <div>${order.shippingPrice.toFixed(2)}</div>
-                </div>
-              </li>
-              <li>
-                <div className="row">
-                  <div>Tax</div>
-                  <div>${order.taxPrice.toFixed(2)}</div>
+                  <div>Livraison</div>
+                  <div>{order.taxPrice.toFixed(2)} TND</div>
                 </div>
               </li>
               <li>
                 <div className="row">
                   <div>
-                    <strong> Order Total</strong>
+                    <strong> Total de la commande</strong>
                   </div>
                   <div>
-                    <strong>${order.totalPrice.toFixed(2)}</strong>
+                    <strong>{order.totalPrice.toFixed(2)} TND</strong>
                   </div>
                 </div>
               </li>

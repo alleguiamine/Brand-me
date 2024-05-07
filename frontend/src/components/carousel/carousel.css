@@ -5,7 +5,7 @@
   display: block;
   place-items: center;
   overflow: hidden;
-  top: 700px; /* Move the carousel 20 pixels higher */
+  top: 600px; /* Move the carousel 20 pixels higher */
 }
 
 
@@ -65,9 +65,9 @@ img:hover {
   top: 0;
 }
 
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   img {
-    width: 85%;
-    height: 80%;
+    width: 95%;
+    height: 90%;
   }
 }

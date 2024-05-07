@@ -32,10 +32,11 @@ function NavBar() {
           <img src="/images/logobrand.png" alt="Your Logo" />
         </Link>
       </div>
-      <ul className="nav-links">
-        <li><Link to="/">Home</Link></li>
+      <div className="navbar-functions">
+      <ul >
+        <li><Link className="Montserrat" to="/">Home</Link></li>
       </ul>
-
+      </div>
       <div className="dropdown">
         <Link to="#admin">
           Categories <i className="fa fa-caret-down"></i>

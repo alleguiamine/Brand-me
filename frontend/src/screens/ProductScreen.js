@@ -33,15 +33,15 @@ export default function ProductScreen(props) {
           Retour au résultat
           </Link>
           <div className="row top1">
-            <div className="col-1">
+            <div className="col-6">
               <img
-                className="large"
+                className="large1" 
                 src={product.image}
                 alt={product.name}
               ></img>
             </div>
-            <div className="col-2">
-              <div className="card-body">
+            <div className="col-6">
+              <div className="card-bod">
                 <ul className="order">
                   <li>
                     <h1>{product.name}</h1>
@@ -61,7 +61,7 @@ export default function ProductScreen(props) {
               </div>
             </div>
             <div className="col-3">
-              <div className="card-body">
+              <div className="card-bod">
                 <div className="order">
                   <ul>
                     <li>
@@ -106,7 +106,7 @@ export default function ProductScreen(props) {
                         <li>
                           <button
                             onClick={addToCartHandler}
-                            className="primary block"
+                            className="modifier-button"
                           >
                             Ajouter au panier
                           </button>

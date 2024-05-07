@@ -20,12 +20,11 @@ export default function CatScreen() {
 
   return (
     <div className="productHome">
-      <div className="tph">
-        <div className="reg">
-        <h3>Produits de la catégorie {category}</h3>
+      <div className="caca">
+        <div className="reg" >
+        <h3 className="caca">Produits de la catégorie {category}</h3>
         </div>
       </div>
-
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (

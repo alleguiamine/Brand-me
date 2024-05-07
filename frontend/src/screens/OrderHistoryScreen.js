@@ -8,9 +8,11 @@ export default function OrderHistoryScreen(props) {
   const orderMineList = useSelector((state) => state.orderMineList);
   const { loading, error, orders } = orderMineList;
   const dispatch = useDispatch();
+  
   useEffect(() => {
     dispatch(listOrderMine());
   }, [dispatch]);
+  
   return (
     <div className="orderlist">
       <h1 className="orderHistory">Order History</h1>
@@ -25,6 +27,7 @@ export default function OrderHistoryScreen(props) {
               <th>ID</th>
               <th>DATE</th>
               <th>TOTAL</th>
+              <th>IMAGES</th>
               <th>PAID</th>
               <th>DELIVERED</th>
               <th>ACTIONS</th>
@@ -36,12 +39,13 @@ export default function OrderHistoryScreen(props) {
                 <td>{order._id}</td>
                 <td>{order.createdAt.substring(0, 10)}</td>
                 <td>{order.totalPrice.toFixed(2)}</td>
-                <td>{order.isPaid ? order.paidAt.substring(0, 10) : "No"}</td>
                 <td>
-                  {order.isDelivered
-                    ? order.deliveredAt.substring(0, 10)
-                    : "No"}
+                  {order.orderItems.map((item) => (
+                    <img key={item._id} src={item.image} alt={item.name} style={{ width: '50px', height: '50px', margin: '5px' }} />
+                  ))}
                 </td>
+                <td>{order.isPaid ? order.paidAt.substring(0, 10) : "No"}</td>
+                <td>{order.isDelivered ? order.deliveredAt.substring(0, 10) : "No"}</td>
                 <td>
                   <button
                     type="button"
