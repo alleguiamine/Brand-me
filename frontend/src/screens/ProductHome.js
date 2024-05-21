@@ -14,8 +14,8 @@ export default function HomeScreen() {
   }, [dispatch]);
   return (
     <div className="productHome">
-      <div className="tph">
-        <h3 className="center-text"> Nos Meilleurs Tableaux</h3>
+      <div className="tph" style={{ marginTop: '260px',display: 'flex', justifyContent: 'center', alignItems: 'flex-end' }}>
+        <h3>Nos Meilleurs Tableaux</h3>
       </div>
 
       {loading ? (

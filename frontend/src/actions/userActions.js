@@ -15,13 +15,13 @@ import {
   USER_UPDATE_PROFILE_SUCCESS,
 } from "../constants/userConstants";
 
-export const register = (name, email, password) => async (dispatch) => {
-  dispatch({ type: USER_REGISTER_REQUEST, payload: { email, password } });
+export const register = (formData) => async (dispatch) => {
+  dispatch({ type: USER_REGISTER_REQUEST, payload: formData });
   try {
-    const { data } = await Axios.post("/api/users/register", {
-      name,
-      email,
-      password,
+    const { data } = await Axios.post("/api/users/register", formData, {
+      headers: {
+        "Content-Type": "multipart/form-data", // Ensure to set the correct content type
+      },
     });
     dispatch({ type: USER_REGISTER_SUCCESS, payload: data });
     dispatch({ type: USER_SIGNIN_SUCCESS, payload: data });
@@ -36,6 +36,8 @@ export const register = (name, email, password) => async (dispatch) => {
     });
   }
 };
+
+
 
 export const signin = (email, password) => async (dispatch) => {
   dispatch({ type: USER_SIGNIN_REQUEST, payload: { email, password } });
@@ -65,7 +67,7 @@ export const detailsUser = (userId) => async (dispatch, getState) => {
     userSignin: { userInfo },
   } = getState();
   try {
-    const { data } = await Axios.get(`/api/users/${userId}`, {
+    const { data } = await Axios.get(`/api/users/details/${userId}`, {
       headers: { Authorization: `Bearer ${userInfo.token}` },
     });
     dispatch({ type: USER_DETAILS_SUCCESS, payload: data });

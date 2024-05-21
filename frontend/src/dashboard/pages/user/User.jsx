@@ -8,7 +8,6 @@ function User() {
             <div className="userTitleContainer">
                 <h1 className="userTitle">Edit user</h1>
                 <Link to="/newUser">
-         <button className="userAddButton">Create</button>
 </Link>
             </div>
             <div className="userContainer">

@@ -16,6 +16,31 @@ userRouter.get(
   })
 );
 
+
+userRouter.get('/users', async (req, res) => {
+  try {
+    const users = await User.find(); // Fetch all users from the database
+    res.json(users); // Send the user list as JSON response
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
+userRouter.delete(
+  '/:id',
+  expressAsyncHandler(async (req, res) => {
+    const userId = req.params.id;
+    const user = await User.findById(userId);
+    if (user) {
+      await user.remove();
+      res.status(200).send({ message: 'User deleted successfully' });
+    } else {
+      res.status(404).send({ message: 'User not found' });
+    }
+  })
+);
+
 userRouter.post(
   "/signin",
   expressAsyncHandler(async (req, res) => {
@@ -27,6 +52,8 @@ userRouter.post(
           name: user.name,
           email: user.email,
           isAdmin: user.isAdmin,
+          image: user.image,
+
           token: generateToken(user),
         });
         return;
@@ -36,26 +63,72 @@ userRouter.post(
   })
 );
 
-userRouter.post(
-  "/register",
-  expressAsyncHandler(async (req, res) => {
-    const user = new User({
-      name: req.body.name,
-      email: req.body.email,
-      password: bcrypt.hashSync(req.body.password, 8),
-    });
-    const createdUser = await user.save();
-    res.send({
-      _id: createdUser._id,
-      name: createdUser.name,
-      email: createdUser.email,
-      isAdmin: createdUser.isAdmin,
-      token: generateToken(createdUser),
-    });
-  })
-);
+
+import path from "path";
+import multer from "multer";
+
+const storage = multer.diskStorage({
+  destination: './uploads/images',
+  filename: function(req, file, callback) {
+    callback(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname));
+  }
+});
+
+const upload = multer({
+  storage: storage,
+  limits: { fileSize: 1000000 }, // Set file size limit to 1 MB
+  fileFilter: function(req, file, callback) {
+      checkFileType(file, callback);
+  }
+}).single('image');
+
+function checkFileType(file, callback) {
+  const filetypes = /jpeg|jpg|png|gif/;
+  const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+  const mimetype = filetypes.test(file.mimetype);
+  if (mimetype && extname) {
+      return callback(null, true);
+  } else {
+      callback('Error: Images only!');
+  }
+}
+
+
+userRouter.post('/register', async (req, res) => {
+  upload(req, res, async (err) => {
+    try {
+      if (err) {
+        console.log(err);
+        return res.status(500).send({ code: 500, message: 'Image upload error' });
+      }
+      
+      const imagePath = req.file ? req.file.path : null;
+
+      const user = new User({
+        name: req.body.name,
+        email: req.body.email,
+        password: bcrypt.hashSync(req.body.password, 8),
+        image: imagePath,
+      });
+
+      const createdUser = await user.save();
+      res.send({
+        _id: createdUser._id,
+        name: createdUser.name,
+        email: createdUser.email,
+        isAdmin: createdUser.isAdmin,
+        token: generateToken(createdUser),
+        image: createdUser.image,
+      });
+    } catch (err) {
+      console.error(err);
+      res.status(500).send({ code: 500, message: 'Internal server error' });
+    }
+  });
+});
+
 userRouter.get(
-  "/:id",
+  "/details/:id",
   expressAsyncHandler(async (req, res) => {
     const user = await User.findById(req.params.id);
     if (user) {
@@ -88,3 +161,11 @@ userRouter.put(
   })
 );
 export default userRouter;
+
+
+
+
+
+
+
+

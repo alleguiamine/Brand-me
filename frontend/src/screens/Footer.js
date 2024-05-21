@@ -1,60 +1,49 @@
 import React from "react";
-import { SocialIcon } from "react-social-icons";
-
-// import FacebookIcon from "@mui/icons-material/Facebook";
+import { Grid, Typography, IconButton } from "@mui/material";
+import { Facebook, YouTube, Instagram, LinkedIn } from "@mui/icons-material";
 
 export default function Footer() {
   return (
-    <div className="footer">
-      <div className="containerFooter bottom_border ">
-        <div className="rowFooter">
-          <div className=" col-footer">
-            <h5 className=" col_white_amrc pt2">NOUS CONTACTER</h5>
-            <p>
-              <i className="fa fa-location-arrow"></i> 11 rue Ferdaws.EZZAHRA Tunis {" "}
-            </p>
-            <p>
-              <i className="fi fi-sr-circle-phone"></i> +216 29 605 400{" "}
-            </p>
-            <p>
-              <i className="fa fa fa-envelope"></i> Rached@group.com{" "}
-            </p>
-          </div>
-          <hr />
-          <div className=" col-footer">
-            <h5>Brand me En Bref</h5>
-            <p className="mb10">Si vous êtes à la recherche d'un cadeau unique pour exprimer votre amour,votre gratitude ou même vos excuses, </p>
-            <p className="mb10">  nous avons ce qu'il vous faut!
-Vivez l'expérience d'apporter de la joie l'expérience d'apporter de la joieà vos proches</p>
-            <p className="mb10"> et regardez leurs yeux briller comme les étoiles que vous leur offrirez.
-N’hésitez pas à nous poser toutes vos questions </p>
-          
-<p className="mb10">concernant nos produits et nos services. N’hésitez pas à nous poser toutes vos questions concernant nos produits et nos services. </p></div>
-          <hr />
-          <div className=" col-footer" >
-            <h5>REJOIGNEZ-NOUS</h5>
-            <div className="IconsFlex">
-              <div className="IconsContainer">
-                <SocialIcon url="https://www.facebook.com/3alla9ni" />
-              </div>{" "}
-              <div className="IconsContainer">
-                <SocialIcon url="" />
-              </div>
-              <div className="IconsContainer youtube-icon">
-  <SocialIcon url="https://www.youtube.com/results?search_query=3alla9ni" />
-</div>
-
-              <div className="IconsContainer">
-                <SocialIcon url="https://www.instagram.com/3alla9ni/" />
-              </div>{" "}
-              <div className="IconsContainer">
-                <SocialIcon url="https://linkedin.com/asmaapat" />
-              </div>
-
+    <footer style={{ marginTop: '60px'}} className="bg-dark text-light py-4">
+      <div className="container" style={{ marginTop: '60px'}}>
+        <Grid container spacing={2} justifyContent="center" alignItems="center">
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6">NOUS CONTACTER</Typography>
+            <Typography>
+              <i className="fa fa-location-arrow me-2"></i> 11 rue Ferdaws.EZZAHRA Tunis
+            </Typography>
+            <Typography>
+              <i className="fi fi-sr-circle-phone me-2"></i> +216 90 280 230
+            </Typography>
+            <Typography>
+              <i className="fa fa fa-envelope me-2"></i> BrandMe@group.com
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6">Brand me En Bref</Typography>
+            <Typography>
+              Si vous êtes à la recherche d'un cadeau unique pour exprimer votre amour, votre gratitude ou même vos excuses, nous avons ce qu'il vous faut! Vivez l'expérience d'apporter de la joie à vos proches et regardez leurs yeux briller comme les étoiles que vous leur offrirez.
+            </Typography>
+          </Grid>
+          <Grid item xs={12} md={4}>
+            <Typography variant="h6">REJOIGNEZ-NOUS</Typography>
+            <div className="d-flex">
+              <IconButton>
+                <Facebook className="text-light" />
+              </IconButton>
+              <IconButton>
+                <YouTube className="text-light" />
+              </IconButton>
+              <IconButton>
+                <Instagram className="text-light" />
+              </IconButton>
+              <IconButton>
+                <LinkedIn className="text-light" />
+              </IconButton>
             </div>
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </div>
-    </div>
+    </footer>
   );
 }

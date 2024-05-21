@@ -23,7 +23,8 @@ import {
 export const listProductsByCategory = (category) => async (dispatch) => {
   dispatch({ type: PRODUCT_LIST_BY_CATEGORY_REQUEST });
   try {
-    const { data } = await Axios.get(`/api/products/by-category?category=${category}`);
+    const { data } = await Axios.get(`/api/products/by-category/${category}`);
+    console.log(category)
     dispatch({ type: PRODUCT_LIST_BY_CATEGORY_SUCCESS, payload: data });
   } catch (error) {
     dispatch({ type: PRODUCT_LIST_BY_CATEGORY_FAIL, payload: error.message });

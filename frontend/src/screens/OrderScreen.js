@@ -7,6 +7,7 @@ import { detailsOrder, payOrder } from "../actions/orderActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import { ORDER_PAY_RESET } from "../constants/orderConstants";
+import { Container, Paper, Typography, Button, Grid, Divider } from "@mui/material";
 
 export default function OrderScreen(props) {
   const orderId = props.match.params.id;
@@ -51,135 +52,111 @@ export default function OrderScreen(props) {
   };
 
   return loading ? (
-    <LoadingBox></LoadingBox>
+    <LoadingBox />
   ) : error ? (
     <MessageBox variant="danger">{error}</MessageBox>
   ) : (
-    <div className="order">
-      <h1 className="vg">Commande {order._id}</h1>
-      <div className="row top">
-        <div className="col-4">
-          <ul>
-            <li>
-              <div className="card card-body">
-                <h2 className="vg">Shipping</h2>
-                <p>
-                  <strong>Nom:</strong> {order.shippingAddress.fullName} <br />
-                  <strong>Adresse: </strong> {order.shippingAddress.address},
-                  <strong>Télephone: </strong> {order.shippingAddress.telephone},
+    <Container style={{ marginTop: '60px'}} maxWidth="md">
+     
+        Commande {order._id}
 
-                  {order.shippingAddress.city},{" "}
-                  {order.shippingAddress.postalCode},
-                  {order.shippingAddress.country}
-                </p>
-                {order.isDelivered ? (
-                  <MessageBox variant="success">
-                    Livré à {order.deliveredAt}
-                  </MessageBox>
-                ) : (
-                  <MessageBox variant="danger">Non livrés</MessageBox>
-                )}
-              </div>
-            </li>
-            <li>
-              <div className="card card-body">
-                <h2 className="vg">Paiement</h2>
-                <p>
-                  <strong>Méthode:</strong> {order.paymentMethod}
-                </p>
-                {order.isPaid ? (
-                  <MessageBox variant="success">
-                    Payé à {order.paidAt}
-                  </MessageBox>
-                ) : (
-                  <MessageBox variant="danger">Impayé</MessageBox>
-                )}
-              </div>
-            </li>
-            <li>
-              <div className="card card-body">
-                <h2 className="vg">Items commandés</h2>
-                <ul>
-                  {order.orderItems.map((item) => (
-                    <li key={item.product}>
-                      <div className="row">
-                        <div>
-                          <img
-                            src={item.image}
-                            alt={item.name}
-                            className="small"
-                          ></img>
-                        </div>
-                        <div className="min-30">
-                          <Link to={`/product/${item.product}`}>
-                            {item.name}
-                          </Link>
-                        </div>
-
-                        <div>
-                          {item.qty} x {item.price} TND = {item.qty * item.price} TND
-                        </div>
-                      </div>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </li>
-          </ul>
-        </div>
-        <div>
-          <div className="card2 card-body">
-            <ul>
-              <li>
-                <h2>Récapitulatif de la commande</h2>
-              </li>
-              <li>
-                <div className="row">
-                  <div>Articles</div>
-                  <div>{order.itemsPrice.toFixed(2)} TND</div>
-                </div>
-              </li>
-            
-              <li>
-                <div className="row">
-                  <div>Livraison</div>
-                  <div>{order.taxPrice.toFixed(2)} TND</div>
-                </div>
-              </li>
-              <li>
-                <div className="row">
-                  <div>
-                    <strong> Total de la commande</strong>
-                  </div>
-                  <div>
-                    <strong>{order.totalPrice.toFixed(2)} TND</strong>
-                  </div>
-                </div>
-              </li>
-
+        
+     
+     
+      <Grid container spacing={3}>
+        <Grid item xs={12} md={8}>
+          <Paper elevation={3} sx={{ p: 2, mb: 2 }}>
+            <Typography variant="h6">Expédition</Typography>
+            <Typography>
+              <strong>Nom:</strong> {order.shippingAddress.fullName} <br />
+              <strong>Adresse:</strong> {order.shippingAddress.address},{" "}
+              {order.shippingAddress.city}, {order.shippingAddress.postalCode},{" "}
+              {order.shippingAddress.country} <br />
+              <strong>Téléphone:</strong> {order.shippingAddress.telephone}
+            </Typography>
+            {order.isDelivered ? (
+              <MessageBox variant="success">
+                Livré à {order.deliveredAt}
+              </MessageBox>
+            ) : (
+              <MessageBox variant="danger">Non livré</MessageBox>
+            )}
+          </Paper>
+          <Paper elevation={3} sx={{ p: 2, mb: 2 }}>
+            <Typography variant="h6">Paiement</Typography>
+            <Typography>
+              <strong>Méthode:</strong> {order.paymentMethod}
+            </Typography>
+            {order.isPaid ? (
+              <MessageBox variant="success">
+                Payé à {order.paidAt}
+              </MessageBox>
+            ) : (
+              <MessageBox variant="danger">Impayé</MessageBox>
+            )}
+          </Paper>
+          <Paper elevation={3} sx={{ p: 2, mb: 2 }}>
+            <Typography variant="h6">Articles commandés</Typography>
+            {order.orderItems.map((item) => (
+              <Grid container key={item.product} spacing={2} alignItems="center">
+                <Grid item xs={3}>
+                  <img src={`/../${item.image}`} alt={item.name} style={{ width: '100%' }} />
+                </Grid>
+                <Grid item xs={4}>
+                  <Link to={`/product/${item.product}`}>{item.name}</Link>
+                </Grid>
+                <Grid item xs={5}>
+                  {item.qty} x {item.price} TND = {item.qty * item.price} TND
+                </Grid>
+              </Grid>
+            ))}
+          </Paper>
+        </Grid>
+        <Grid item xs={12} md={4}>
+          <Paper elevation={3} sx={{ p: 2 }}>
+            <Typography variant="h6">Récapitulatif de la commande</Typography>
+            <Divider sx={{ my: 1 }} />
+            <Grid container spacing={2}>
+              <Grid item xs={6}>
+                <Typography>Articles :</Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <Typography align="right">{order.itemsPrice.toFixed(2)} TND</Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <Typography>Livraison :</Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <Typography align="right">{order.taxPrice.toFixed(2)} TND</Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <Typography variant="h6">Total :</Typography>
+              </Grid>
+              <Grid item xs={6}>
+                <Typography variant="h6" align="right">{order.totalPrice.toFixed(2)} TND</Typography>
+              </Grid>
               {!order.isPaid && (
-                <li>
+                <Grid item xs={12}>
                   {!sdkReady ? (
-                    <LoadingBox></LoadingBox>
+                    <LoadingBox />
                   ) : (
                     <>
                       {errorPay && (
                         <MessageBox variant="danger">{errorPay}</MessageBox>
                       )}
-                      {loadingPay && <LoadingBox></LoadingBox>}
-
+                      {loadingPay && <LoadingBox />}
                       <PayPalButton
                         amount={order.totalPrice}
                         onSuccess={successPaymentHandler}
-                      ></PayPalButton>
+                      />
                     </>
                   )}
-                </li>
+                </Grid>
               )}
-            </ul>
-          </div>
-        </div>
-      </div>
-    </div>
+            </Grid>
+          </Paper>
+        </Grid>
+      </Grid>
+    </Container>
   );
 }

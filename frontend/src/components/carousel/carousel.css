@@ -1,13 +1,12 @@
 .card-slider {
-  height: 320px; /* Keep the container height as it is */
+  height: 320px;
   position: absolute;
   width: 100%;
   display: block;
   place-items: center;
   overflow: hidden;
-  top: 600px; /* Move the carousel 20 pixels higher */
+  top: 650px; /* Modifier cette valeur pour déplacer le carrousel plus bas */
 }
-
 
 .card-slide-track {
   display: flex;
@@ -28,7 +27,7 @@
 }
 
 .card-slide {
-  height: 280px; /* Adjust the height of the card to make it a little smaller */
+  height: 280px;
   width: 250px;
   display: flex;
   align-items: center;

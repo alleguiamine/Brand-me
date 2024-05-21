@@ -3,6 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { listOrderMine } from "../actions/orderActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import { Container, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, IconButton } from "@mui/material";
+import { Visibility } from "@mui/icons-material";
 
 export default function OrderHistoryScreen(props) {
   const orderMineList = useSelector((state) => state.orderMineList);
@@ -14,54 +16,62 @@ export default function OrderHistoryScreen(props) {
   }, [dispatch]);
   
   return (
-    <div className="orderlist">
-      <h1 className="orderHistory">Order History</h1>
+    <Container  maxWidth="md">
+      <Typography variant="h1" align="center" gutterBottom>
+        Order History
+      </Typography>
       {loading ? (
         <LoadingBox></LoadingBox>
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
-        <table className="table">
-          <thead>
-            <tr className="orderHistory">
-              <th>ID</th>
-              <th>DATE</th>
-              <th>TOTAL</th>
-              <th>IMAGES</th>
-              <th>PAID</th>
-              <th>DELIVERED</th>
-              <th>ACTIONS</th>
-            </tr>
-          </thead>
-          <tbody>
-            {orders.map((order) => (
-              <tr className="ordertext" key={order._id}>
-                <td>{order._id}</td>
-                <td>{order.createdAt.substring(0, 10)}</td>
-                <td>{order.totalPrice.toFixed(2)}</td>
-                <td>
-                  {order.orderItems.map((item) => (
-                    <img key={item._id} src={item.image} alt={item.name} style={{ width: '50px', height: '50px', margin: '5px' }} />
-                  ))}
-                </td>
-                <td>{order.isPaid ? order.paidAt.substring(0, 10) : "No"}</td>
-                <td>{order.isDelivered ? order.deliveredAt.substring(0, 10) : "No"}</td>
-                <td>
-                  <button
-                    type="button"
-                    className="button-info"
-                    onClick={() => {
-                      props.history.push(`/order/${order._id}`);
-                    }}
-                  >
-                    Details
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
+        <TableContainer component={Paper}>
+          <Table>
+            <TableHead>
+              <TableRow>
+                <TableCell>ID</TableCell>
+                <TableCell>Date</TableCell>
+                <TableCell>Total</TableCell>
+                <TableCell>Images</TableCell>
+                <TableCell>Paid</TableCell>
+                <TableCell>Delivered</TableCell>
+                <TableCell>Actions</TableCell>
+              </TableRow>
+            </TableHead>
+            <TableBody>
+              {orders.map((order) => (
+                <TableRow key={order._id}>
+                  <TableCell>{order._id}</TableCell>
+                  <TableCell>{order.createdAt.substring(0, 10)}</TableCell>
+                  <TableCell>{order.totalPrice.toFixed(2)}</TableCell>
+                  <TableCell>
+                    {order.orderItems.map((item) => (
+                      <img
+                        key={item._id}
+                        src={item.image}
+                        alt={item.name}
+                        style={{ width: '50px', height: '50px', margin: '5px' }}
+                      />
+                    ))}
+                  </TableCell>
+                  <TableCell>{order.isPaid ? order.paidAt.substring(0, 10) : "No"}</TableCell>
+                  <TableCell>{order.isDelivered ? order.deliveredAt.substring(0, 10) : "No"}</TableCell>
+                  <TableCell>
+                    <IconButton
+                      color="primary"
+                      onClick={() => {
+                        props.history.push(`/order/${order._id}`);
+                      }}
+                    >
+                      <Visibility />
+                    </IconButton>
+                  </TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
       )}
-    </div>
+    </Container>
   );
 }

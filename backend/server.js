@@ -7,8 +7,8 @@ import productRouter from "./routers/productRouter.js";
 import userRouter from "./routers/userRouter.js";
 import orderRouter from "./routers/orderRouter.js";
 import uploadRouter from "./routers/uploadRouter.js";
-
 dotenv.config();
+
 
 const app = express();
 app.use(express.json());
@@ -36,13 +36,19 @@ mongoose.connect(process.env.MONGO_URI || "mongodb://localhost/wamia", {
 app.use("/api/uploads", uploadRouter);
 
 app.use("/api/users", userRouter);
+
 app.use("/api/products", productRouter);
+
+app.use('/uploads/images', express.static('uploads/images'));
+
+
+
+
 app.use("/api/orders", orderRouter);
 app.get("/api/config/paypal", (req, res) => {
   res.send(process.env.PAYPAL_CLIENT_ID || "sb");
 });
 const __dirname = path.resolve();
-app.use("/uploads", express.static(path.join(__dirname, "/uploads")));
 
 // if  (process.env.NODE_ENV === 'production') {
 

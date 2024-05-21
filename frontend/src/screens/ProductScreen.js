@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-
 import { detailsProduct } from "../actions/productActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
 import Rating from "../components/Rating";
+import { Container, Grid, Card, CardMedia, Typography, Button, MenuItem, Select, FormControl, InputLabel, Box, Paper, Divider } from '@mui/material';
 
 export default function ProductScreen(props) {
   const dispatch = useDispatch();
@@ -21,105 +21,101 @@ export default function ProductScreen(props) {
   const addToCartHandler = () => {
     props.history.push(`/cart/${productId}?qty=${qty}`);
   };
+
   return (
-    <div>
+    <Container style={{ marginTop: '30px'}}>
+      
       {loading ? (
-        <LoadingBox></LoadingBox>
+        <LoadingBox />
       ) : error ? (
         <MessageBox variant="danger">{error}</MessageBox>
       ) : (
         <div>
-          <Link to="/" className="back">
-          Retour au résultat
-          </Link>
-          <div className="row top1">
-            <div className="col-6">
-              <img
-                className="large1" 
-                src={product.image}
-                alt={product.name}
-              ></img>
-            </div>
-            <div className="col-6">
-              <div className="card-bod">
-                <ul className="order">
-                  <li>
-                    <h1>{product.name}</h1>
-                  </li>
-                  <li>
-                    <Rating
-                      rating={product.rating}
-                      numReviews={product.numReviews}
-                    ></Rating>
-                  </li>
-                  <li>Prix : {product.price} DT</li>
-                  <li>
-                    Description:
-                    <p>{product.description}</p>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div className="col-3">
-              <div className="card-bod">
-                <div className="order">
-                  <ul>
-                    <li>
-                      <div className="row">
-                        <div>Prix</div>
-                        <div className="price">{product.price} DT</div>
-                      </div>
-                    </li>
-                    <li>
-                      <div className="row">
-                        <div>Statut</div>
-                        <div>
-                          {product.countInStock > 0 ? (
-                            <span className="success">En stock</span>
-                          ) : (
-                            <span className="danger">Indisponible</span>
-                          )}
-                        </div>
-                      </div>
-                    </li>
-                    {product.countInStock > 0 && (
-                      <>
-                        <li>
-                          <div className="row">
-                            <div>Quantité</div>
-                            <div>
-                              <select
-                                value={qty}
-                                onChange={(e) => setQty(e.target.value)}
-                              >
-                                {[...Array(product.countInStock).keys()].map(
-                                  (x) => (
-                                    <option key={x + 1} value={x + 1}>
-                                      {x + 1}
-                                    </option>
-                                  )
-                                )}
-                              </select>
-                            </div>
-                          </div>
-                        </li>
-                        <li>
-                          <button
-                            onClick={addToCartHandler}
-                            className="modifier-button"
-                          >
-                            Ajouter au panier
-                          </button>
-                        </li>
-                      </>
-                    )}
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
+         
+          <div className="text-center">  {/* Bootstrap class to center the text */}
+          <h1 style={{ "fontFamily":"'Gill Sans', 'Gill Sans MT', 'Calibri', 'Trebuchet MS', sans-serif"}} className="display-6 text-center mb-4">
+          le choix sélectionné</h1>
+
+    </div>
+
+          <Grid container spacing={3}>
+            <Grid item xs={12} md={6}>
+              <Card>
+              <CardMedia
+    component="img"
+    image={`/../${product.image}`}
+    sx={{ maxHeight: '400px', objectFit: 'contain' }}
+/>
+
+              </Card>
+            </Grid>
+            <Grid item xs={12} md={3}>
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Typography variant="h4" component="h1" gutterBottom>
+                  {product.name}
+                </Typography>
+                <Box mb={2}>
+                  <Rating rating={product.rating} 
+                   numReviews={product.numReviews} />
+                </Box>
+                <Typography variant="body1" component="p" sx={{ mt: 2 }}>
+                  {product.description}
+                </Typography>
+              </Paper>
+            </Grid>
+            <Grid item xs={12} md={3}>
+              <Paper elevation={3} sx={{ p: 2 }}>
+                <Typography variant="h6" component="div" gutterBottom>
+                  Prix
+                </Typography>
+                <Typography variant="h5" component="div" sx={{ mb: 2 }}>
+                  {product.price} TND
+                </Typography>
+                <Divider />
+                <Typography variant="h6" component="div" sx={{ mt: 2 }}>
+                  Statut
+                </Typography>
+                <Typography variant="body1" component="div" sx={{ mb: 2 }}>
+                  {product.countInStock > 0 ? (
+                    <span style={{ color: 'green' }}>En stock</span>
+                  ) : (
+                    <span style={{ color: 'red' }}>Indisponible</span>
+                  )}
+                </Typography>
+                <Divider />
+                {product.countInStock > 0 && (
+                  <>
+                    <FormControl fullWidth sx={{ mt: 2, mb: 2 }}>
+                      <InputLabel id="quantity-label">Quantité</InputLabel>
+                      <Select
+                        labelId="quantity-label"
+                        id="quantity"
+                        value={qty}
+                        label="Quantité"
+                        onChange={(e) => setQty(e.target.value)}
+                      >
+                        {[...Array(product.countInStock).keys()].map((x) => (
+                          <MenuItem key={x + 1} value={x + 1}>
+                            {x + 1}
+                          </MenuItem>
+                        ))}
+                      </Select>
+                    </FormControl>
+                    <Button
+                      onClick={addToCartHandler}
+                      variant="contained"
+                      color="primary"
+                      fullWidth
+                    >
+                      Ajouter au panier
+                    </Button>
+                  </>
+                )}
+              </Paper>
+            </Grid>
+          </Grid>
         </div>
       )}
-    </div>
+    </Container>
   );
 }

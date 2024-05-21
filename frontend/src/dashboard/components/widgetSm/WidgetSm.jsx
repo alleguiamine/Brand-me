@@ -12,7 +12,7 @@ function WidgetSm() {
                 <li className="widgetSmListItem">
                     <img src={Achraf} alt="" className="widgetSmImg" />
                   <div className="widgetSmUser">
-                      <span className="widgetSmUsername">Achraf bokri</span>
+                      <span className="widgetSmUsername">nabil aouedi</span>
                       <span className="widgetSmUserTitle">Software Developper</span>
 
                   </div>
@@ -24,7 +24,7 @@ function WidgetSm() {
                  <li className="widgetSmListItem">
                     <img src={Achraf} alt="" className="widgetSmImg" />
                   <div className="widgetSmUser">
-                      <span className="widgetSmUsername">Achraf bokri</span>
+                      <span className="widgetSmUsername">nabil aouedi</span>
                       <span className="widgetSmUserTitle">Software Developper</span>
 
                   </div>
@@ -36,7 +36,7 @@ function WidgetSm() {
                 <li className="widgetSmListItem">
                     <img src={Achraf} alt="" className="widgetSmImg" />
                   <div className="widgetSmUser">
-                      <span className="widgetSmUsername">Achraf bokri</span>
+                      <span className="widgetSmUsername">nabil aouedi</span>
                       <span className="widgetSmUserTitle">Software Developper</span>
 
                   </div>

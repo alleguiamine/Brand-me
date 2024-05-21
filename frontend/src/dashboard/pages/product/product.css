@@ -1,111 +1,258 @@
-.product {
+.home {
   flex: 4;
-  padding: 20px;
+  padding-top: 30px;
+  background-color: white;
 }
-.productTitleContainer {
+
+.homeWidgets {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  margin: 20px;
 }
-.productAddButton {
-  width: 80px;
+
+.container {
+  max-width: 1000px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.container h2 {
+  font-size: 26px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+.container .btn-success {
+  background-color: #28a745;
+  color: #fff;
   border: none;
-  padding: 5px;
-  background-color: teal;
-  color: whitesmoke;
-  border-radius: 5px;
+  padding: 10px 20px;
   font-size: 16px;
   cursor: pointer;
 }
-.productTop {
-  display: flex;
+
+.container .btn-success:hover {
+  background-color: #218838;
 }
-.productTopLeft,
-.productTopRight {
-  flex: 1;
+
+.container .table-container {
+  margin-top: 20px;
 }
-.productTopRight {
-  padding: 20px;
-  margin: 20px;
-  -webkit-box-shadow: 5px 5px 15px 5px #000000;
-  box-shadow: 5px 5px 15px 5px #000000;
+
+.container .table {
+  width: 1000px;
+  border-collapse: collapse;
 }
-.productInfoImg {
-  width: 40px;
-  height: 40px;
+
+.container .table th,
+.container .table td {
+  padding: 8px;
+  border-bottom: 1px solid #dee2e6;
+  text-align: left;
+}
+
+.container .table th {
+  background-color: #f8f9fa;
+  text-transform: uppercase;
+}
+
+.container .table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.container .circular-image {
+  width: 50px;
+  height: 50px;
   border-radius: 50%;
-  margin-right: 20px;
-  object-fit: cover;
 }
-.productInfoTop {
-  display: flex;
-  align-items: center;
-}
-.productName {
-  font-weight: 600;
-}
-.productInfoBottom {
-  margin-top: 10px;
-}
-.productInfoItem {
-  width: 150px;
-  display: flex;
-  justify-content: space-between;
-}
-.productInfoValue {
-  font-weight: 300;
-}
-.productBottom {
-  padding: 20px;
-  margin: 20px;
-  -webkit-box-shadow: 5px 5px 15px 5px #000000;
-  box-shadow: 5px 5px 15px 5px #000000;
+.container .table th,
+.container .table td {
+  padding: 5px; /* Adjust the padding to make cells smaller */
+  border-bottom: 1px solid #dee2e6;
+  text-align: left;
+  font-size: 14px; /* Adjust the font size to make text smaller */
 }
 
-.productForm {
-  display: flex;
-  justify-content: space-between;
-}
-.productFormLeft {
-  display: flex;
-  flex-direction: column;
-}
-.productFormLeft > label {
-  margin-bottom: 10px;
-  color: gray;
-}
-.productFormLeft > input {
-  margin-bottom: 10px;
-  border: none;
-  padding: 5px;
-  border-bottom: 1px solid rgb(66, 64, 64);
-}
-.productFormLeft > select {
-  margin-bottom: 10px;
-}
-
-.productFormRight {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-around;
-}
-.productUpload {
-  display: flex;
-  align-items: center;
-}
-.productButton {
-  border: none;
-  padding: 5px;
-  border-radius: 5px;
-  background-color: darkblue;
-  color: white;
-  font-weight: 600;
+button {
+  background-color: #f8f8f8;
   cursor: pointer;
 }
-.productUploadImg {
-  width: 100px;
-  height: 100px;
-  border-radius: 10px;
-  object-fit: cover;
-  margin-right: 20px;
+input:hover,
+select:hover,
+textarea:hover,
+button:hover {
+  border: 0.1rem #a19b9b solid;
+}
+button.btn-success {
+  /* background-color: #95a595; */
+  margin-bottom: 10px;
+  background-color: DodgerBlue
+
+  ;
+  /* background-color: #370028; */
+}
+button.block {
+  width: 100%;
+}
+/* Style de base pour le bouton */
+.modifier-button {
+  background-color: #ff9800; /* Couleur de fond */
+  border: none; /* Pas de bordure */
+  color: white; /* Couleur du texte */
+  padding: 10px 20px; /* Remplissage */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de soulignement */
+  display: inline-block; /* Affichage en ligne */
+  font-size: 16px; /* Taille de la police */
+  cursor: pointer; /* Curseur */
+  border-radius: 5px; /* Bordure arrondie */
+}
+
+/* Style au survol */
+.modifier-button:hover {
+  background-color: #ff9900; /* Couleur de fond au survol */
+}
+
+/* Style lorsque le bouton est pressé */
+.modifier-button:active {
+  background-color: #ff9900; /* Couleur de fond au clic */
+}
+
+/* Style pour l'avertissement */
+.modifier-button.warning {
+  background-color: #ffc400; /* Couleur de fond */
+}
+
+/* Style pour l'avertissement au survol */
+.modifier-button.warning:hover {
+  background-color: #ffc400; /* Couleur de fond au survol */
+}
+
+/* Style pour l'avertissement lorsque le bouton est pressé */
+.modifier-button.warning:active {
+  background-color: #ffd000; /* Couleur de fond au clic */
+}
+
+/* Style de base pour le bouton */
+.supprimer-button {
+  background-color: #f44336; /* Couleur de fond */
+  border: none; /* Pas de bordure */
+  color: white; /* Couleur du texte */
+  padding: 10px 20px; /* Remplissage */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de soulignement */
+  display: inline-block; /* Affichage en ligne */
+  font-size: 16px; /* Taille de la police */
+  cursor: pointer; /* Curseur */
+  border-radius: 5px; /* Bordure arrondie */
+}
+
+/* Style au survol */
+.supprimer-button:hover {
+  background-color: #d32f2f; /* Couleur de fond au survol */
+}
+
+/* Style lorsque le bouton est pressé */
+.supprimer-button:active {
+  background-color: #b71c1c; /* Couleur de fond au clic */
+}
+/* Style de base pour le bouton */
+.mise-a-jour-button {
+  background-color: #4caf50; /* Couleur de fond */
+  border: none; /* Pas de bordure */
+  color: white; /* Couleur du texte */
+  padding: 10px 20px; /* Remplissage */
+  text-align: center; /* Alignement du texte */
+  text-decoration: none; /* Pas de soulignement */
+  display: inline-block; /* Affichage en ligne */
+  font-size: 16px; /* Taille de la police */
+  cursor: pointer; /* Curseur */
+  border-radius: 5px; /* Bordure arrondie */
+  width: 100%;
+}
+
+/* Style au survol */
+.mise-a-jour-button:hover {
+  background-color: #45a049; /* Couleur de fond au survol */
+}
+
+/* Style lorsque le bouton est pressé */
+.mise-a-jour-button:active {
+  background-color: #398438; /* Couleur de fond au clic */
+}
+/* Style du bouton Info */
+.button-info {
+  background-color: #17a2b8;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 10px 20px;
+  font-size: 16px; /* Taille de la police */
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.button-info:hover {
+  background-color: #138496;
+}
+.circular-image {
+  width: 150px; /* Adjust the width and height as needed */
+  height: 150px;
+  border-radius: 50%; /* Make it round */
+  object-fit: cover; /* Maintain aspect ratio */
+}
+
+.icon-button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.icon-button:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+
+.pop-up-container {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.tab-popap {
+  width: 100%; /* Utilise toute la largeur du conteneur */
+  
+}
+
+.tab-popap td {
+  padding: 8px;
+}
+
+.tab-popap label {
+  width: 80%;
+  font-size: 14px;
+  color: #333333;
+}
+
+.tab-popap input {
+  width: calc(100% - 16px); /* Largeur totale moins le padding */
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.tab-popap button {
+  width: 100%;
+  padding: 8px;
+  margin-top: 10px;
 }

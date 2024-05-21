@@ -9,6 +9,9 @@ import NewUser from "./pages/newUser/NewUser";
 import ProductList from "./pages/productList/ProductList";
 import Product from "./pages/product/Product";
 import NewProduct from "./pages/newProduct/NewProduct";
+import OrderHistory from "./pages/order/OrderHistory";
+import Categorie from "./pages/categorie/categorie";
+import OffrePage from "./pages/offre/OffrePage";
 function AppDash() {
   return (
     <Router>
@@ -28,15 +31,19 @@ function AppDash() {
           <Route path="/newUser">
             <NewUser />
           </Route>
-          <Route path="/products">
-            <ProductList />
-          </Route>
-          <Route path="/product/:productId">
+          <Route path="/pro">
             <Product />
           </Route>
-          <Route path="/newproduct">
-            <NewProduct />
+          <Route path="/OrderHistory">
+            <OrderHistory />
           </Route>
+          <Route path="/categorie">
+            <Categorie />
+          </Route>
+          <Route path="/offre">
+            <OffrePage />
+          </Route>
+       
         </Switch>
       </div>
     </Router>

@@ -2,124 +2,118 @@ import React, { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { saveShippingAddress } from "../actions/cartActions";
 import CheckoutSteps from "../components/CheckoutSteps";
+import { Button, Container, Grid, TextField } from "@mui/material";
 
 export default function ShippingAddressScreen(props) {
   const userSignin = useSelector((state) => state.userSignin);
   const { userInfo } = userSignin;
   const cart = useSelector((state) => state.cart);
   const { shippingAddress } = cart;
+
   if (!userInfo) {
     props.history.push("/signin");
   }
-  const [fullName, setFullName] = useState(shippingAddress.fullName);
-  const [address, setAddress] = useState(shippingAddress.address);
-  const [telephone, setTelephone] = useState(shippingAddress.telephone);
 
-  const [city, setCity] = useState(shippingAddress.city);
-  const [postalCode, setPostalCode] = useState(shippingAddress.postalCode);
-  const [country, setCountry] = useState(shippingAddress.country);
+  const [formData, setFormData] = useState({
+    fullName: shippingAddress.fullName || "",
+    address: shippingAddress.address || "",
+    telephone: shippingAddress.telephone || "",
+    city: shippingAddress.city || "",
+    postalCode: shippingAddress.postalCode || "",
+    country: shippingAddress.country || "",
+  });
+
   const dispatch = useDispatch();
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prevData) => ({
+      ...prevData,
+      [name]: value,
+    }));
+  };
+
   const submitHandler = (e) => {
     e.preventDefault();
-    dispatch(
-      saveShippingAddress({ fullName, address,telephone , city, postalCode, country })
-    );
+    dispatch(saveShippingAddress(formData));
     props.history.push("/payment");
   };
+
   return (
-    <div className="order">
-      <CheckoutSteps step1 step2></CheckoutSteps>
-      <form className="form" onSubmit={submitHandler}>
-        <div>
-          <h1 className="vg">adresse de livraison</h1>
-        </div>
-        <div>
-          <label htmlFor="fullName" className="vg">
-          Nom et prénom
-          </label>
-          <input
-            type="text"
-            id="fullName"
-            placeholder="Entrez le nom et le prénom"
-            value={fullName}
-            onChange={(e) => setFullName(e.target.value)}
-            required
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="address" className="vg">
-          Adresse
-          </label>
-          <input
-            type="text"
-            id="address"
-            placeholder="Entrer l'adresse"
-            value={address}
-            onChange={(e) => setAddress(e.target.value)}
-            required
-          ></input>
-        </div>
-
-        <div>
-          <label htmlFor="telephone" className="vg">
-          Télephone
-          </label>
-          <input
-            type="text"
-            id="tel"
-            placeholder="Entrer numéro de télephone"
-            value={telephone}
-            onChange={(e) => setTelephone(e.target.value)}
-            required
-          ></input>
-        </div>
-
-        <div>
-          <label htmlFor="city" className="vg">
-          Ville
-          </label>
-          <input
-            type="text"
-            id="city"
-            placeholder="Entrez la ville"
-            value={city}
-            onChange={(e) => setCity(e.target.value)}
-            required
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="postalCode" className="vg">
-          Code Postal
-          </label>
-          <input
-            type="text"
-            id="postalCode"
-            placeholder="Entrez le code postal"
-            value={postalCode}
-            onChange={(e) => setPostalCode(e.target.value)}
-            required
-          ></input>
-        </div>
-        <div>
-          <label htmlFor="country" className="vg">
-          Pays
-          </label>
-          <input
-            type="text"
-            id="country"
-            placeholder="Entrez le pays"
-            value={country}
-            onChange={(e) => setCountry(e.target.value)}
-            required
-          ></input>
-        </div>
-        <div>
-          <label />
-          <button className="primary" type="submit">
-          Continuer
-          </button>
-        </div>
+    <Container maxWidth="md">
+      <CheckoutSteps step1 step2 />
+      <form onSubmit={submitHandler}>
+        <Grid container spacing={2}>
+          <Grid item xs={12}>
+            <h1>Adresse de livraison</h1>
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              name="fullName"
+              label="Nom et prénom"
+              value={formData.fullName}
+              onChange={handleChange}
+              required
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              name="address"
+              label="Adresse"
+              value={formData.address}
+              onChange={handleChange}
+              required
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              name="telephone"
+              label="Téléphone"
+              value={formData.telephone}
+              onChange={handleChange}
+              required
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              name="city"
+              label="Ville"
+              value={formData.city}
+              onChange={handleChange}
+              required
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              name="postalCode"
+              label="Code postal"
+              value={formData.postalCode}
+              onChange={handleChange}
+              required
+            />
+          </Grid>
+          <Grid item xs={12} sm={6}>
+            <TextField
+              fullWidth
+              name="country"
+              label="Pays"
+              value={formData.country}
+              onChange={handleChange}
+              required
+            />
+          </Grid>
+          <Grid item xs={12}>
+            <Button variant="contained" color="primary" type="submit">
+              Continuer
+            </Button>
+          </Grid>
+        </Grid>
       </form>
-    </div>
+    </Container>
   );
 }

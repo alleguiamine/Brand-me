@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { detailsUser, updateUserProfile } from "../actions/userActions";
 import LoadingBox from "../components/LoadingBox";
 import MessageBox from "../components/MessageBox";
+import { Button, Container, TextField, Typography } from "@mui/material";
 import { USER_UPDATE_PROFILE_RESET } from "../constants/userConstants";
 
 export default function ProfileScreen() {
@@ -22,6 +23,7 @@ export default function ProfileScreen() {
     loading: loadingUpdate,
   } = userUpdateProfile;
   const dispatch = useDispatch();
+
   useEffect(() => {
     if (!user) {
       dispatch({ type: USER_UPDATE_PROFILE_RESET });
@@ -31,83 +33,75 @@ export default function ProfileScreen() {
       setEmail(user.email);
     }
   }, [dispatch, userInfo._id, user]);
+
   const submitHandler = (e) => {
     e.preventDefault();
-    // dispatch update profile
     if (password !== confirmPassword) {
       alert("Password and Confirm Password Are Not Matched");
     } else {
       dispatch(updateUserProfile({ userId: user._id, name, email, password }));
     }
   };
+
   return (
-    <div className="order">
+    <Container style={{ marginTop: '80px' }} maxWidth="sm">
       <form className="form" onSubmit={submitHandler}>
-        <div>
-          <h1>Profil de l'utilisateur</h1>
-        </div>
+        <Typography variant="h4">Profil de l'utilisateur</Typography>
         {loading ? (
-          <LoadingBox></LoadingBox>
+          <LoadingBox />
         ) : error ? (
           <MessageBox variant="danger">{error}</MessageBox>
         ) : (
           <>
-            {loadingUpdate && <LoadingBox></LoadingBox>}
+            {loadingUpdate && <LoadingBox />}
             {errorUpdate && (
               <MessageBox variant="danger">{errorUpdate}</MessageBox>
             )}
             {successUpdate && (
-              <MessageBox variant="success">
-               Mise à jour du profil réussie
-              </MessageBox>
+              <MessageBox variant="success">Mise à jour du profil réussie</MessageBox>
             )}
-            <div>
-              <label htmlFor="name">Nom et prénom</label>
-              <input
-                id="name"
-                type="text"
-                placeholder="Entrez le nom et le prénom"
-                value={name}
-                onChange={(e) => setName(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="email">E-mail</label>
-              <input
-                id="email"
-                type="email"
-                placeholder="Entrez l'e-mail"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="password">Mot de passe</label>
-              <input
-                id="password"
-                type="password"
-                placeholder="Entrer le mot de passe"
-                onChange={(e) => setPassword(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label htmlFor="confirmPassword">Confirmez le mot de passe</label>
-              <input
-                id="confirmPassword"
-                type="password"
-                placeholder="Entrez le mot de passe de confirmation"
-                onChange={(e) => setConfirmPassword(e.target.value)}
-              ></input>
-            </div>
-            <div>
-              <label />
-              <button className="mise-a-jour-button" type="submit">
+            <TextField
+              fullWidth
+              id="name"
+              label="Nom et prénom"
+              variant="outlined"
+              margin="normal"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+            <TextField
+              fullWidth
+              id="email"
+              label="E-mail"
+              variant="outlined"
+              margin="normal"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <TextField
+              fullWidth
+              id="password"
+              label="Mot de passe"
+              variant="outlined"
+              margin="normal"
+              type="password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+            <TextField
+              fullWidth
+              id="confirmPassword"
+              label="Confirmez le mot de passe"
+              variant="outlined"
+              margin="normal"
+              type="password"
+              onChange={(e) => setConfirmPassword(e.target.value)}
+            />
+            <Button variant="contained" color="primary" type="submit">
               Mise à jour
-              </button>
-            </div>
+            </Button>
           </>
         )}
       </form>
-    </div>
+    </Container>
   );
 }
